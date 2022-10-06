@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="styleforBMI.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Arvo&family=Dancing+Script:wght@400;500&family=Dongle:wght@300&family=Island+Moments&family=Lobster&family=Merriweather:wght@300&family=Mochiy+Pop+P+One&family=Mukta:wght@200&family=Neonderthaw&family=Sedgwick+Ave&display=swap" rel="stylesheet">
+    <title>BMI Calc</title>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark" id="nav">
+        <div class="container-fluid">
+          <a class="navbar-brand fs-3">BMI Calculator</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              
+              
+              
+             
+            </ul>
+            
+          </div>
+          <div class="name fs-3">Welcome to know your BMI</div>
+        </div>
+        
+      </nav>
+    </header>
+    <main class="main">
+
+     <div class="content">
+      <div class="weight">
+      <h1><label for="">Enter Your weight in Kg : </label>
+      <input type="number" id="getweight"></h1>
+    </div>
+
+    <div class="height">
+      <h1><label for="">Enter Your height in Cm : </label>
+      <input type="number" id="getheight"></h1>
+    </div>
+
+    <div class="age">
+      <h1><label for="">Enter Your Age : </label>
+      <input type="number" id="getAge"></h1>
+    </div>
+    <h2 style="font-family: 'Sedgwick Ave', cursive">Your Gender :  <select name="" id="gender">
+    <option value="">Select one</option>
+      <option value="">Male</option>
+      <option value="">Female</option>
+    </select></h2>
+
+    <button type="button" class="btn btn-outline-success fs-3" id="calc" onclick="select()">Calculate</button>
+    <h2 style="font-family: 'Merriweather', serif;" id="result"></h2>
+    <h3 style="font-family: 'Merriweather', serif;" id="data"></h3>
+  </div>
+  
+      
+  </main>
+
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script>
+
+const select = () => {
+
+        const age = parseInt(document.getElementById('getweight').value);
+        const wt = parseInt(document.getElementById('getweight').value);
+        const ht =parseInt(document.getElementById('getheight').value);
+        var calc = wt/(Math.pow((ht/100),2));
+        calc = Math.trunc(calc);
+        
+        if(Number.isNaN(calc))
+        {
+          alert("plzz give your height and weight more than 0")
+        }
+        else
+        {
+        document.getElementById('result').innerHTML = `Your BMI is ${calc} ` ;
+        if(calc < 19)
+        {
+          document.getElementById('data').innerHTML = ` You are Underweight ` ;
+          
+        }
+        else if(calc >= 19 && calc <= 25)
+        {
+          document.getElementById('data').innerHTML = ` You are Healthy ` ;
+        }
+        else if(calc >= 25 && calc <= 31)
+        {
+          document.getElementById('data').innerHTML = ` You are Overweight ` ;
+          
+        }
+        else
+        {
+          document.getElementById('data').innerHTML = ` You have Obesity ` ;
+        }
+      }
+        
+    }
+
+    </script>
+  </body>
+</html>
